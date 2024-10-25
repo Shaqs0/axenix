@@ -1,5 +1,5 @@
 import { Outlet, useLocation, Link } from 'react-router-dom';
-import { Logo, SignIn } from '../assets';
+import { Logo, SignIn, Telegram, Vk } from '../assets';
 
 export function Layout() {
 	const location = useLocation();
@@ -36,8 +36,31 @@ export function Layout() {
 				<Outlet />
 			</section>
 
-			<footer className='h-[20vh] bg-[#101010] text-[white]'>
-				UnderMeow
+			<footer className='flex h-[32vh] justify-around bg-[#101010] text-[white]'>
+				<div className='flex flex-col items-center justify-center gap-[30px]'>
+					<img src={Logo} className='h-[86px] w-[150px]'/>
+					<div className='flex items-center justify-center gap-10'>
+						<img src={Vk} className='size-[47px]'/>
+						<img src={Telegram} className='size-[47px]'/>
+					</div>
+					<p className='text-[13px] font-normal text-[#717171]'>© 2024, ООО «АксТим»</p>
+				</div>
+				<div className='flex items-center justify-center gap-20'>
+					<div>
+						<ul className='flex flex-col gap-2'>
+							<li className='text-lg font-bold text-primary-orange'>Адрес:</li>
+							<li className='text-lg font-normal'>Москва </li>
+							<li className='text-lg font-normal'>Павелецкая площадь, д.2 стр.2</li>
+						</ul>
+					</div>
+					<div>
+						<ul className='flex flex-col gap-2'>
+							<li className='text-lg font-bold text-primary-orange'>Контакты:</li>
+							<li className='text-lg font-normal'>Тел: +7 (727) 355-10-88</li>
+							<li className='text-lg font-normal'>info-russia@axenix.pro</li>
+						</ul>
+					</div>
+				</div>
 			</footer>
 		</div>
 	);
