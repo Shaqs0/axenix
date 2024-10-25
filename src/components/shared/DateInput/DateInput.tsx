@@ -60,7 +60,7 @@ export function DateInput() {
 					className="rounded border p-2"
 				/>
 				{isStartCalendarOpen && (
-					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px]">
+					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px] lg:w-[950px]">
 						<Calendar onDateSelect={handleStartDateSelect} />
 					</div>
 				)}
@@ -76,7 +76,7 @@ export function DateInput() {
 					className="rounded border p-2"
 				/>
 				{isEndCalendarOpen && (
-					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px]">
+					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px] lg:w-[950px]">
 						<Calendar onDateSelect={handleEndDateSelect} />
 					</div>
 				)}

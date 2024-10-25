@@ -2,7 +2,7 @@ import { addMonths, format, startOfMonth, eachDayOfInterval, endOfMonth, isSameD
 import { useState, useEffect } from 'react';
 
 interface CalendarProps {
-  onDateSelect: (date: Date) => void; // Пропс для передачи выбранной даты
+  onDateSelect: (date: Date) => void;
 }
 
 export function Calendar({ onDateSelect }: CalendarProps) {
@@ -10,7 +10,6 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 	const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 	const [isMobile, setIsMobile] = useState(false);
 
-	// Обработчик изменения размера экрана
 	useEffect(() => {
 		const handleResize = () => {
 			setIsMobile(window.innerWidth <= 1024);
@@ -27,14 +26,12 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 		});
 	};
 
-	// Функции для переключения месяца
 	const nextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
 	const prevMonth = () => setCurrentMonth(addMonths(currentMonth, -1));
 
-	// Обработчик выбора даты
 	const handleDateClick = (date: Date) => {
 		setSelectedDate(date);
-		onDateSelect(date); // Передача выбранной даты
+		onDateSelect(date); 
 	};
 
 	return (
