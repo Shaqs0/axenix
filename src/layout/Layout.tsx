@@ -6,12 +6,12 @@ export function Layout() {
 
 	return (
 		<div>
-			<header className='flex items-center justify-center bg-[#101010]'>
+			<header className='flex items-center justify-center bg-[#101010] pt-1'>
 				<div className='flex h-[20vh] w-full items-center justify-around'>
-					<div>
+					<div className=''>
 						<img src={Logo} className='-mt-14 h-[80px] w-[150px]' />
 					</div>
-					<div className='flex items-center gap-10 text-xl font-medium text-[#FFFFFF]'>
+					<div className='flex items-center gap-14 text-xl font-medium text-[#FFFFFF]'>
 						<Link to="/">
 							<p className={`${
 								location.pathname === '/' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
@@ -26,7 +26,7 @@ export function Layout() {
 								Доступные билеты
 							</p>
 						</Link>
-						<button className='flex items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
+						<button className='flex h-[45px] items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
 							Войти <img src={SignIn} />
 						</button>
 					</div>
