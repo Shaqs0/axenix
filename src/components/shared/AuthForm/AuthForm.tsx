@@ -24,26 +24,26 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 	};
 
 	return (
-		<div className="mx-auto w-full max-w-md rounded-md border border-[gray] bg-[white] p-8 shadow-md">
-			<h2 className="mb-6 text-center text-2xl font-semibold">
+		<div className="mx-auto w-full max-w-md rounded-md border-2 border-primary-orange bg-[black] p-8 shadow-md">
+			<h2 className="mb-6 text-center text-[44px] font-bold text-[white]">
 				{isRegister ? 'Регистрация' : 'Авторизация'}
 			</h2>
 			<form onSubmit={handleSubmit(handleFormSubmit)}>
 				{isRegister && (
 					<div className="mb-4">
-						<label className="mb-2 block text-[gray]">ФИО</label>
+						<label className="label-text">ФИО</label>
 						<input
 							type="text"
 							{...register('fullName', { required: 'Введите ФИО' })}
-							className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+							className="form-input"
 							autoComplete="name"  
 						/>
-						{errors.fullName && <p className="text-sm text-[red]">{errors.fullName.message}</p>}
+						{errors.fullName && <p className="mt-1 text-sm text-[white]">{errors.fullName.message}</p>}
 					</div>
 				)}
         
 				<div className="mb-4">
-					<label className="mb-2 block text-[gray]">Email</label>
+					<label className="label-text">Email</label>
 					<input
 						type="email"
 						{...register('email', {
@@ -53,39 +53,39 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 								message: 'Неверный формат Email'
 							}
 						})}
-						className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+						className="form-input"
 						autoComplete="email" 
 					/>
-					{errors.email && <p className="text-sm text-[red]">{errors.email.message}</p>}
+					{errors.email && <p className="mt-1 text-sm text-[white]">{errors.email.message}</p>}
 				</div>
         
 				<div className="mb-6">
-					<label className="mb-2 block text-[gray]">Пароль</label>
+					<label className="label-text">Пароль</label>
 					<input
 						type="password"
 						{...register('password', {
 							required: 'Введите пароль',
 							minLength: { value: 6, message: 'Пароль должен содержать минимум 6 символов' }
 						})}
-						className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+						className="form-input"
 						autoComplete="new-password" 
 					/>
-					{errors.password && <p className="text-sm text-[red]">{errors.password.message}</p>}
+					{errors.password && <p className="mt-1 text-sm text-[white]">{errors.password.message}</p>}
 				</div>
 
 				<button
 					type="submit"
-					className="w-full rounded-md bg-[blue] py-2 text-[white] transition duration-200 hover:bg-[black]"
+					className="mt-8 w-full rounded-md border border-primary-orange bg-[black] py-2 text-[white] transition duration-200 hover:bg-primary-orange"
 				>
 					{isRegister ? 'Зарегистрироваться' : 'Войти'}
 				</button>
 			</form>
-			<p className="mt-4 text-center">
+			<p className="mt-4 text-center text-[white]">
 				{isRegister ? 'Уже зарегистрированы?' : 'Нет аккаунта?'}
 				<button
 					type="button"
 					onClick={handleFormToggle}
-					className="ml-1 text-[blue] hover:underline"
+					className="ml-1 text-base font-semibold text-primary-orange hover:underline"
 				>
 					{isRegister ? 'Войти' : 'Зарегистрироваться'}
 				</button>
