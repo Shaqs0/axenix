@@ -3,8 +3,8 @@ type SeatProps = {
 	isReserved: boolean;
 	isSelected: boolean;
 	onClick: () => void;
-  };
-  
+};
+
 export function Seat({ number, isReserved, isSelected, onClick }: SeatProps) {
 	return (
 		<div
@@ -13,7 +13,7 @@ export function Seat({ number, isReserved, isSelected, onClick }: SeatProps) {
 				isReserved
 					? 'cursor-not-allowed bg-[gray] text-[white]'
 					: isSelected
-						? 'bg-[blue] text-[white]' // Цвет для выбранных мест
+						? 'bg-[blue] text-[white]'
 						: 'bg-[orange] text-[black]'
 			}`}
 		>
@@ -21,4 +21,3 @@ export function Seat({ number, isReserved, isSelected, onClick }: SeatProps) {
 		</div>
 	);
 }
-  

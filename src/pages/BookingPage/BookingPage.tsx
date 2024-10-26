@@ -7,8 +7,8 @@ export function BookingPage() {
 	const handleSeatClick = (seatNumber: number) => {
 		setSelectedSeats((prevSelectedSeats) =>
 			prevSelectedSeats.includes(seatNumber)
-				? prevSelectedSeats.filter((seat) => seat !== seatNumber) // Убираем место, если оно уже выбрано
-				: [...prevSelectedSeats, seatNumber] // Добавляем место
+				? prevSelectedSeats.filter((seat) => seat !== seatNumber)
+				: [...prevSelectedSeats, seatNumber]
 		);
 	};
 
@@ -19,13 +19,13 @@ export function BookingPage() {
 	return (
 		<div className="flex h-screen flex-col items-center justify-center bg-[black] p-4">
 			<h1 className="mb-4 text-2xl font-bold text-[white]">Схема вагона</h1>
-			<SeatMap totalSeats={15} selectedSeats={selectedSeats} onSeatClick={handleSeatClick} />
+			<SeatMap totalSeats={16} selectedSeats={selectedSeats} onSeatClick={handleSeatClick} />
 			<Legend />
 			<button
 				onClick={handleShowSelectedSeats}
 				className="mt-4 rounded bg-[blue] px-4 py-2 text-[white] hover:bg-[blue]"
 			>
-        Показать выбранные места
+				Показать выбранные места
 			</button>
 		</div>
 	);
