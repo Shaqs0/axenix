@@ -37,7 +37,7 @@ export function Layout() {
 			</section>
 
 			<footer className='flex h-[32vh] justify-around bg-[#101010] text-[white]'>
-				<div className='flex flex-col items-center justify-center gap-[30px]'>
+				<div className='-ml-7 flex flex-col items-center justify-center gap-[30px]'>
 					<img src={Logo} className='h-[86px] w-[150px]'/>
 					<div className='flex items-center justify-center gap-10'>
 						<img src={Vk} className='size-[47px]'/>
@@ -47,7 +47,7 @@ export function Layout() {
 				</div>
 				<div className='flex items-center justify-center gap-20'>
 					<div>
-						<ul className='flex flex-col gap-2'>
+						<ul className='flex flex-col gap-2 '>
 							<li className='text-lg font-bold text-primary-orange'>Адрес:</li>
 							<li className='text-lg font-normal'>Москва </li>
 							<li className='text-lg font-normal'>Павелецкая площадь, д.2 стр.2</li>
@@ -57,7 +57,7 @@ export function Layout() {
 						<ul className='flex flex-col gap-2'>
 							<li className='text-lg font-bold text-primary-orange'>Контакты:</li>
 							<li className='text-lg font-normal'>Тел: +7 (727) 355-10-88</li>
-							<li className='text-lg font-normal'>info-russia@axenix.pro</li>
+							<li className='text-lg font-normal'>Info-russia@axenix.pro</li>
 						</ul>
 					</div>
 				</div>

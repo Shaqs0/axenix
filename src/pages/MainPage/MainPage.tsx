@@ -12,10 +12,14 @@ export function MainPage() {
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 						<div>
-							<button className='flex h-[70px] w-[200px] items-center justify-center rounded-[10px] bg-[black] text-base font-medium text-[#FFFFFF]'>Купить билет</button>
+							<button className='flex h-[70px] w-[200px] items-center justify-center rounded-[10px] bg-[black] text-base font-medium text-[#FFFFFF] opacity-80'>Купить билет</button>
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div>
+				
 			</div>
 		</div>
 	);
