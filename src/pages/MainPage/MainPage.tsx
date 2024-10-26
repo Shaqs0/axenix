@@ -1,5 +1,5 @@
 import { BgImg } from '../../assets';
-import { DateInput } from '../../components';
+import { DateInput, DirectionInput } from '../../components';
 
 export function MainPage() {
 	return (
@@ -21,12 +21,17 @@ export function MainPage() {
 			</div>
 
 			<div className='flex h-[70vh] text-[white]'>
-				<div className="absolute left-[10%] top-[110%] -translate-y-1/2">
-					<div className='flex flex-col gap-10'>
+				<div className="absolute left-[10%] top-[120%] -translate-y-1/2">
+					<div className='flex flex-col gap-12'>
 						<p className='text-[50px] font-bold tracking-[4px] text-[#FFFFFF]'>Забронировать билет</p>
 
-						<div className='flex'>
-							<DateInput/>
+						<div className='flex flex-col gap-10'>
+							<div>
+								<DirectionInput/>
+							</div>
+							<div>
+								<DateInput/>
+							</div>
 						</div>
 					</div>
 				</div>

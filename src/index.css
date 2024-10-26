@@ -28,3 +28,7 @@ body {
 .DateInput {
       @apply bg-[#151515] h-[50px] w-[300px]  border-2 border-primary-orange text-center rounded-lg
 }
+
+.DirectionInput {
+      @apply bg-[#151515] h-[50px] w-[300px]  border-2 border-primary-orange text-center rounded-lg
+}

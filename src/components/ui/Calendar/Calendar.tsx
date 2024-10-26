@@ -39,7 +39,7 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 			<div className="flex">
 				<button
 					onClick={prevMonth}
-					className="flex h-[50px] items-center justify-center rounded-md bg-[blue] px-4 py-2 text-[white]"
+					className="flex h-[50px] items-center justify-center rounded-md bg-primary-orange px-4 py-2 text-[white]"
 				>
           ⇦
 				</button>
@@ -61,7 +61,7 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 									key={day.toString()}
 									onClick={() => handleDateClick(day)}
 									className={`cursor-pointer rounded border p-2 ${
-										selectedDate && isSameDay(day, selectedDate) ? 'bg-[blue] text-[white]' : ''
+										selectedDate && isSameDay(day, selectedDate) ? 'bg-primary-orange text-[white]' : ''
 									}`}
 								>
 									{format(day, 'd')}
@@ -74,7 +74,7 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 
 			<button
 				onClick={nextMonth}
-				className="flex h-[50px] items-center justify-center rounded-md bg-[blue] px-4 py-2 text-[white]"
+				className="flex h-[50px] items-center justify-center rounded-md bg-primary-orange px-4 py-2 text-[white]"
 			>
         ⇨
 			</button>

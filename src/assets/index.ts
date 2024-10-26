@@ -4,3 +4,4 @@ export {default as BgImg} from './bg-image.png';
 export {default as Vk} from './footer/vk.svg';
 export {default as Telegram} from './footer/telegram.svg';
 export {default as Clock} from './clock.svg';
+export {default as Train} from './train.svg';
