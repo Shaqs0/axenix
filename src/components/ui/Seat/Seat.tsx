@@ -1,18 +1,24 @@
-
-
 type SeatProps = {
-  number: number;
-  isReserved: boolean;
-};
-
-export function Seat({ number, isReserved }: SeatProps) {
+	number: number;
+	isReserved: boolean;
+	isSelected: boolean;
+	onClick: () => void;
+  };
+  
+export function Seat({ number, isReserved, isSelected, onClick }: SeatProps) {
 	return (
 		<div
-			className={`flex size-10 items-center justify-center rounded border ${
-				isReserved ? 'bg-[gray] text-[white]' : 'bg-[orange] text-[black]'
+			onClick={!isReserved ? onClick : undefined} 
+			className={`flex size-10 cursor-pointer items-center justify-center rounded border ${
+				isReserved
+					? 'cursor-not-allowed bg-[gray] text-[white]'
+					: isSelected
+						? 'bg-[blue] text-[white]' // Цвет для выбранных мест
+						: 'bg-[orange] text-[black]'
 			}`}
 		>
 			{number}
 		</div>
 	);
 }
+  

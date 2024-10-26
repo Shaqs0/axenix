@@ -1,5 +1,3 @@
-
-
 export function Legend() {
 	return (
 		<div className="mt-4 flex space-x-4">
@@ -14,3 +12,4 @@ export function Legend() {
 		</div>
 	);
 }
+  

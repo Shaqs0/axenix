@@ -1,12 +1,32 @@
+import { useState } from 'react';
 import { Legend, SeatMap } from '../../components';
 
-
 export function BookingPage() {
+	const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
+
+	const handleSeatClick = (seatNumber: number) => {
+		setSelectedSeats((prevSelectedSeats) =>
+			prevSelectedSeats.includes(seatNumber)
+				? prevSelectedSeats.filter((seat) => seat !== seatNumber) // Убираем место, если оно уже выбрано
+				: [...prevSelectedSeats, seatNumber] // Добавляем место
+		);
+	};
+
+	const handleShowSelectedSeats = () => {
+		alert(`Вы выбрали места: ${selectedSeats.join(', ')}`);
+	};
+
 	return (
 		<div className="flex h-screen flex-col items-center justify-center bg-[black] p-4">
-			<h1 className="mb-4 text-2xl font-bold text-[white]">Train Seat Booking</h1>
-			<SeatMap totalSeats={30} /> 
-			<Legend /> 
+			<h1 className="mb-4 text-2xl font-bold text-[white]">Схема вагона</h1>
+			<SeatMap totalSeats={15} selectedSeats={selectedSeats} onSeatClick={handleSeatClick} />
+			<Legend />
+			<button
+				onClick={handleShowSelectedSeats}
+				className="mt-4 rounded bg-[blue] px-4 py-2 text-[white] hover:bg-[blue]"
+			>
+        Показать выбранные места
+			</button>
 		</div>
 	);
 }
