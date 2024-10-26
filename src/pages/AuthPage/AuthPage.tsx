@@ -13,7 +13,6 @@ export function AuthPage() {
 	const [showCodeModal, setShowCodeModal] = useState(false);
 	const [verificationCode, setVerificationCode] = useState('');
 	const [userId, setUserId] = useState<string | null>(null);
-	const [isCodeRefreshable, setIsCodeRefreshable] = useState(true);
 
 	const handleAuthSubmit = async (data: AuthFormData, isRegister: boolean) => {
 		if (isRegister) {
@@ -70,40 +69,37 @@ export function AuthPage() {
 				`${PREFIX}/api/auth/new-confirmation-code/send?user=${userId}`
 			);
 			console.log('New confirmation code sent:', response.data);
-			setIsCodeRefreshable(false); 
 
-			setTimeout(() => {
-				setIsCodeRefreshable(true); 
-			}, 120000);
+
 		} catch (error) {
 			console.error('Error sending new confirmation code:', error);
 		}
 	};
 
 	return (
-		<div className="flex h-screen w-screen items-center justify-center">
+		<div className="flex h-screen w-screen items-center justify-center bg-[#151515]">
 			<AuthForm onSubmit={handleAuthSubmit} />
 
 			{showCodeModal && (
-				<div className="fixed inset-0 flex items-center justify-center bg-[black] bg-[opacity/50]">
-					<div className="w-full max-w-sm rounded-md bg-[white] p-6 shadow-md">
-						<h2 className="mb-4 text-lg font-semibold">Введите код подтверждения</h2>
+				<div className="fixed inset-0 flex items-center justify-center bg-[black]">
+					<div className="w-full max-w-sm rounded-md border border-primary-orange bg-[black] p-6">
+						<h2 className="mb-4 text-lg font-semibold text-[white]">Введите код подтверждения</h2>
 						<input
 							type="text"
 							value={verificationCode}
 							onChange={(e) => setVerificationCode(e.target.value)}
-							className="mb-4 w-full rounded-md border border-[gray] p-2"
+							className="mb-4 w-full rounded-md border border-primary-orange bg-[black] p-2 text-[white]"
 							placeholder="Код из почты"
 						/>
 						<button
 							onClick={handleCodeSubmit}
-							className="w-full rounded-md bg-[blue] py-2 text-[white] hover:bg-[blue]"
+							className="my-2 w-full rounded-md border border-primary-orange bg-[black] py-2 text-[white] hover:bg-primary-orange"
 						>
 							Подтвердить
 						</button>
 						<span
-							className={`mt-2 cursor-pointer text-[blue] ${!isCodeRefreshable ? 'pointer-events-none opacity-50' : ''}`}
-							onClick={isCodeRefreshable ? handleRefreshCode : undefined}
+							className={'cursor-pointer text-[white]'}
+							onClick={handleRefreshCode}
 						>
 							Обновить код
 						</span>

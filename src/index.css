@@ -18,5 +18,9 @@ body {
 }
 
 .form-input {
-      @apply w-full rounded-md border border-primary-orange bg-[black] px-4 py-2 focus:outline-none
+      @apply w-full rounded-md border border-primary-orange bg-[black] px-4 py-2 focus:outline-none  text-[white]
+}
+
+.wagon-card {
+      @apply flex w-[80vw] border-2 border-primary-orange bg-[black] rounded-2xl h-[250px] text-[white] p-8 lg:px-1 justify-around max-lg:flex-col max-lg:gap-4 max-lg:h-[300px] 
 }

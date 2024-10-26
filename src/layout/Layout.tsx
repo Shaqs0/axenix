@@ -19,16 +19,18 @@ export function Layout() {
 								Забронировать билет
 							</p>
 						</Link>
-						<Link to="/tickets">
+						<Link to="/wagons">
 							<p className={`${
-								location.pathname === '/tickets' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
+								location.pathname === '/wagons' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
 							}`}>
-								Доступные билеты
+								Выбор вагона
 							</p>
 						</Link>
-						<button className='flex h-[45px] items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
+						<Link to='/auth'>
+							<button className='flex h-[45px] items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
 							Войти <img src={SignIn} />
-						</button>
+							</button>
+						</Link>
 					</div>
 				</div>
 			</header>

@@ -53,7 +53,7 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 								message: 'Неверный формат Email'
 							}
 						})}
-						className="form-input"
+						className="form-input focus:bg-[black]"
 						autoComplete="email" 
 					/>
 					{errors.email && <p className="mt-1 text-sm text-[white]">{errors.email.message}</p>}
