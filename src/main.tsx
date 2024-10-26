@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AvailableTicketsPage, MainPage } from './pages';
+import { AuthPage, MainPage } from './pages';
 import { Layout } from './layout/Layout';
 
 const router = createBrowserRouter([
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/tickets',
-				element: <AvailableTicketsPage/>
+				element: <AuthPage/>
 			}
 		]
 	}

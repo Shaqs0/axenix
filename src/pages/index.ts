@@ -1,2 +1,2 @@
 export {MainPage} from './MainPage/MainPage';
-export {AvailableTicketsPage} from './AvailableTicketsPage/AvailableTicketsPage';
+export {AuthPage} from './AuthPage/AuthPage';

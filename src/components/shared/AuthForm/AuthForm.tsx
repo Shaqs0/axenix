@@ -36,6 +36,7 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 							type="text"
 							{...register('fullName', { required: 'Введите ФИО' })}
 							className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+							autoComplete="name"  
 						/>
 						{errors.fullName && <p className="text-sm text-[red]">{errors.fullName.message}</p>}
 					</div>
@@ -53,6 +54,7 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 							}
 						})}
 						className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+						autoComplete="email" 
 					/>
 					{errors.email && <p className="text-sm text-[red]">{errors.email.message}</p>}
 				</div>
@@ -66,6 +68,7 @@ export function AuthForm({ onSubmit }: AuthFormProps) {
 							minLength: { value: 6, message: 'Пароль должен содержать минимум 6 символов' }
 						})}
 						className="w-full rounded-md border border-[gray] px-4 py-2 focus:outline-none"
+						autoComplete="new-password" 
 					/>
 					{errors.password && <p className="text-sm text-[red]">{errors.password.message}</p>}
 				</div>
