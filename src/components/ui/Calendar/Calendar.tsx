@@ -36,12 +36,12 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 
 	return (
 		<div className="flex gap-5 rounded-md p-2 shadow-lg">
-			<div className="mb-4 flex items-center justify-between">
+			<div className="flex">
 				<button
 					onClick={prevMonth}
-					className="flex self-center rounded-md bg-[blue] px-2 py-1 text-[white]"
+					className="flex h-[50px] items-center justify-center rounded-md bg-[blue] px-4 py-2 text-[white]"
 				>
-          ←
+          ⇦
 				</button>
 			</div>
 
@@ -56,9 +56,6 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 							{format(month, 'MMMM yyyy')}
 						</h3>
 						<div className="grid grid-cols-7 gap-1 text-center">
-							{['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => (
-								<div key={index} className="text-[gray]">{day}</div>
-							))}
 							{daysInMonth.map((day) => (
 								<div
 									key={day.toString()}
@@ -77,9 +74,9 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 
 			<button
 				onClick={nextMonth}
-				className="rounded-md bg-[blue] px-4 py-2 text-[white]"
+				className="flex h-[50px] items-center justify-center rounded-md bg-[blue] px-4 py-2 text-[white]"
 			>
-        →
+        ⇨
 			</button>
 		</div>
 	);

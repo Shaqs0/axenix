@@ -1,8 +1,9 @@
 import { BgImg } from '../../assets';
+import { DateInput } from '../../components';
 
 export function MainPage() {
 	return (
-		<div className="flex w-screen items-start justify-center">
+		<div className="flex w-screen flex-col items-start justify-center">
 			<div className="relative h-[80vh] w-screen bg-cover bg-top" style={{ backgroundImage: `url(${BgImg})` }}>
 				<div className="absolute inset-0 bg-gradient-to-b from-[black]/60 to-[black]/30" />
 				<div className="absolute left-[10%] top-1/2 -translate-y-1/2">
@@ -19,8 +20,16 @@ export function MainPage() {
 				</div>
 			</div>
 
-			<div>
-				
+			<div className='flex h-[70vh] text-[white]'>
+				<div className="absolute left-[10%] top-[110%] -translate-y-1/2">
+					<div className='flex flex-col gap-10'>
+						<p className='text-[50px] font-bold tracking-[4px] text-[#FFFFFF]'>Забронировать билет</p>
+
+						<div className='flex'>
+							<DateInput/>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

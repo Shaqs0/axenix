@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Calendar } from '../../ui/Calendar/Calendar';
 import { format } from 'date-fns';
+import { Clock } from '../../../assets';
 
 export function DateInput() {
 	const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false);
@@ -49,7 +50,7 @@ export function DateInput() {
 	}, []);
 
 	return (
-		<div className="flex gap-4" ref={containerRef}>
+		<div className="flex items-center gap-4" ref={containerRef}>
 			<div className="relative">
 				<input
 					type="text"
@@ -57,7 +58,7 @@ export function DateInput() {
 					onClick={toggleStartCalendar}
 					value={startDate ? format(startDate, 'dd.MM.yyyy') : ''}
 					readOnly
-					className="rounded border p-2"
+					className="DateInput"
 				/>
 				{isStartCalendarOpen && (
 					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px] lg:w-[950px]">
@@ -65,7 +66,7 @@ export function DateInput() {
 					</div>
 				)}
 			</div>
-
+			<img src={Clock} className='size-12'/>
 			<div className="relative">
 				<input
 					type="text"
@@ -73,7 +74,7 @@ export function DateInput() {
 					onClick={toggleEndCalendar}
 					value={endDate ? format(endDate, 'dd.MM.yyyy') : ''}
 					readOnly
-					className="rounded border p-2"
+					className="DateInput"
 				/>
 				{isEndCalendarOpen && (
 					<div className="absolute top-full z-10 mt-2 max-lg:w-[400px] lg:w-[950px]">
