@@ -20,8 +20,8 @@ export function MainPage() {
 				</div>
 			</div>
 
-			<div className='flex h-[70vh] text-[white]'>
-				<div className="absolute left-[10%] top-[120%] -translate-y-1/2">
+			<div className='flex h-[64vh] text-[white]'>
+				<div className="absolute left-[10%] top-[130%] -translate-y-1/2">
 					<div className='flex flex-col gap-12'>
 						<p className='text-[50px] font-bold tracking-[4px] text-[#FFFFFF]'>Забронировать билет</p>
 
@@ -33,6 +33,7 @@ export function MainPage() {
 								<DateInput/>
 							</div>
 						</div>
+						<button className='flex h-[50px] items-center justify-center rounded-[10px] bg-primary-orange text-[15px] font-medium text-[black]'>Забронировать</button>
 					</div>
 				</div>
 			</div>
