@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { AuthForm } from '../../components/shared';
 import axios from 'axios';
 import { PREFIX } from '../../helpers/API';
+import { AuthForm } from '../../components';
 
 interface AuthFormData {
 	fullName?: string;

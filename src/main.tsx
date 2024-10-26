@@ -2,8 +2,11 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthPage, MainPage, Wagons } from './pages';
+import { AuthPage, BookingPage, MainPage, WagonsPage } from './pages';
 import { Layout } from './layout/Layout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
 	{
@@ -16,18 +19,24 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/wagons',
-				element: <Wagons/>
+				element: <WagonsPage/>
 			}
 		]
 	},
 	{
 		path: '/auth',
 		element: <AuthPage/>
+	},
+	{
+		path: '/booking',
+		element: <BookingPage/>
 	}
 ]);
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
-		<RouterProvider router={router}/>
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router}/>
+		</QueryClientProvider>
 	</StrictMode>,
 );

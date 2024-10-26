@@ -1,3 +1,4 @@
 export {MainPage} from './MainPage/MainPage';
 export {AuthPage} from './AuthPage/AuthPage';
-export {Wagons} from './Wagons/Wagons';
+export {WagonsPage} from './WagonsPage/WagonsPage';
+export {BookingPage} from './BookingPage/BookingPage';

@@ -1,6 +1,6 @@
 
 
-export function Wagons () {
+export function WagonsPage () {
 	return (
 		<div className="flex h-[90vh] w-screen items-start justify-center max-lg:h-screen">
 			<div className="mt-[48px] flex flex-col gap-14">
