@@ -12,14 +12,15 @@ export function SeatMap({ totalSeats, selectedSeats, onSeatClick }: SeatMapProps
 		[5, 6, 7, 8],
 		[9, 10, 11, 12],
 		[13, 14, 15, 16],
-	]; 
+	];
 
 	return (
-		<div className="flex flex-col items-center rounded-lg border-4 border-[gray] bg-[darkgray] px-2 pb-3">
-			<div className="flex items-center ">
+		<div className="flex h-[50vh] w-[70vw] flex-col items-center rounded-lg border-4 border-[orange] bg-[black] px-2 pb-3">
+			<div className="flex items-center border-t-[3px] border-[orange]">
 				{seatGroups.map((group, index) => (
-					<div key={index} className="flex flex-col items-center border-2 border-b-0 border-[orange] bg-[black] p-2">
-						<div className="mb-2 flex space-x-4">
+					<div key={index} className="relative flex flex-col items-center border-x-[3px] border-b-[3px] border-[orange] bg-[black] pb-8 pt-[8px]">
+
+						<div className="z-10 -mb-3 flex space-x-4">
 							{group.slice(0, 2).map((seatNumber) => (
 								<Seat
 									key={seatNumber}

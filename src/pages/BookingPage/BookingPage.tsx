@@ -17,7 +17,7 @@ export function BookingPage() {
 	};
 
 	return (
-		<div className="flex h-screen flex-col items-center justify-center bg-[black] p-4">
+		<div className="flex h-[70vh] flex-col items-center justify-center bg-[#151515] p-4">
 			<h1 className="mb-4 text-2xl font-bold text-[white]">Схема вагона</h1>
 			<SeatMap totalSeats={16} selectedSeats={selectedSeats} onSeatClick={handleSeatClick} />
 			<Legend />

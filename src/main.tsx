@@ -4,9 +4,6 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthPage, BookingPage, MainPage, WagonsPage } from './pages';
 import { Layout } from './layout/Layout';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +17,10 @@ const router = createBrowserRouter([
 			{
 				path: '/wagons',
 				element: <WagonsPage/>
+			},
+			{
+				path: '/booking',
+				element: <BookingPage/>
 			}
 		]
 	},
@@ -27,16 +28,10 @@ const router = createBrowserRouter([
 		path: '/auth',
 		element: <AuthPage/>
 	},
-	{
-		path: '/booking',
-		element: <BookingPage/>
-	}
 ]);
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
-		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router}/>
-		</QueryClientProvider>
+		<RouterProvider router={router}/>
 	</StrictMode>,
 );
