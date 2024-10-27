@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PREFIX } from '../../../helpers/API';
-
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 export function PlatzkartSeats() {
 	const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
-	const [seats, setSeats] = useState<any[]>([]); 
-	const [hoveredSeat, setHoveredSeat] = useState<{ seatNum: string; block: number } | null>(null); 
+	const [seats, setSeats] = useState<any[]>([]);
+	const [hoveredSeat, setHoveredSeat] = useState<{ seatNum: string; block: number } | null>(null);
+	const accessToken = useSelector((state: RootState) => state.auth.accessToken);
 
 	const handleSeatClick = (seatNumber: number, bookingStatus: string) => {
 		if (bookingStatus === 'FREE') {
@@ -22,9 +24,13 @@ export function PlatzkartSeats() {
 
 	const fetchSeats = async () => {
 		try {
-			const response = await axios.get(`${PREFIX}/api/info/wagons`);
-			const platzkartWagon = response.data.Result.find((wagon: any) => wagon.wagon_id === 1); 
-			setSeats(platzkartWagon.seats); 
+			const response = await axios.get(`${PREFIX}/api/info/wagons`, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			});
+			const platzkartWagon = response.data.Result.find((wagon: any) => wagon.wagon_id === 1);
+			setSeats(platzkartWagon.seats);
 		} catch (error) {
 			console.error('Ошибка при получении данных:', error);
 		}
@@ -32,10 +38,10 @@ export function PlatzkartSeats() {
 
 	useEffect(() => {
 		fetchSeats();
-	}, []);
+	}, [accessToken]);
 
 	const compartments = Array.from({ length: Math.ceil(seats.length / 6) }, (_, i) =>
-		seats.slice(i * 6, i * 6 + 6) 
+		seats.slice(i * 6, i * 6 + 6)
 	);
 
 	return (
@@ -54,24 +60,22 @@ export function PlatzkartSeats() {
 											onMouseEnter={() => setHoveredSeat({ seatNum: seat.seatNum, block: seat.block })}
 											onMouseLeave={() => setHoveredSeat(null)}
 											className={`flex size-16 items-center justify-center rounded-md text-lg font-semibold ${
-												seat.bookingStatus === 'BOOKED' 
-													? 'cursor-not-allowed bg-[red] text-[white]' 
-													: isSeatSelected(parseInt(seat.seatNum)) 
-														? 'bg-[green] text-[white]' 
-														: 'cursor-pointer bg-[gray] text-[black]' 
+												seat.bookingStatus === 'BOOKED'
+													? 'cursor-not-allowed bg-[red] text-[white]'
+													: isSeatSelected(parseInt(seat.seatNum))
+														? 'bg-[green] text-[white]'
+														: 'cursor-pointer bg-[gray] text-[black]'
 											}`}
-											disabled={seat.bookingStatus === 'BOOKED'} 
+											disabled={seat.bookingStatus === 'BOOKED'}
 										>
-											{seat.seatNum} 
+											{seat.seatNum}
 										</button>
 									))}
 								</div>
-								
-			
 								<div className="invisible size-16"></div>
 								<div className="invisible size-16"></div>
 							</div>
-							<div className="-mt-2 flex gap-2"> 
+							<div className="-mt-2 flex gap-2">
 								{compartment.slice(4, 6).map((seat) => (
 									<button
 										key={seat.seat_id}
@@ -79,13 +83,13 @@ export function PlatzkartSeats() {
 										onMouseEnter={() => setHoveredSeat({ seatNum: seat.seatNum, block: seat.block })}
 										onMouseLeave={() => setHoveredSeat(null)}
 										className={`flex size-16 items-center justify-center rounded-md text-lg font-semibold ${
-											seat.bookingStatus === 'BOOKED' 
-												? 'cursor-not-allowed bg-[red] text-[white]' 
-												: isSeatSelected(parseInt(seat.seatNum)) 
-													? 'bg-[green] text-[white]' 
-													: 'cursor-pointer bg-[gray] text-[black]' 
+											seat.bookingStatus === 'BOOKED'
+												? 'cursor-not-allowed bg-[red] text-[white]'
+												: isSeatSelected(parseInt(seat.seatNum))
+													? 'bg-[green] text-[white]'
+													: 'cursor-pointer bg-[gray] text-[black]'
 										}`}
-										disabled={seat.bookingStatus === 'BOOKED'} 
+										disabled={seat.bookingStatus === 'BOOKED'}
 									>
 										{seat.seatNum}
 									</button>
