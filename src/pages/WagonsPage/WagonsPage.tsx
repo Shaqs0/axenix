@@ -8,7 +8,7 @@ export function WagonsPage() {
 	};
 
 	return (
-		<div className="flex h-[90vh] w-screen items-start justify-center max-lg:h-screen">
+		<div className="flex h-screen w-screen items-start justify-center max-lg:h-screen">
 			<div className="mt-[48px] flex flex-col gap-14">
 				<p className="text-[50px] font-semibold tracking-[4px] text-[white]">Выбор вагона</p>
 				<div className="flex flex-col gap-12">

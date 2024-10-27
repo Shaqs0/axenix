@@ -1,36 +1,39 @@
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import { Logo, SignIn, Telegram, Vk } from '../assets';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store'; 
 
 export function Layout() {
 	const location = useLocation();
+	const accessToken = useSelector((state: RootState) => state.auth.accessToken);
 
 	return (
 		<div>
 			<header className='flex items-center justify-center bg-[#101010] pt-1'>
 				<div className='flex h-[20vh] w-full items-center justify-around'>
-					<div className=''>
+					<div>
 						<img src={Logo} className='-mt-14 h-[80px] w-[150px]' />
 					</div>
 					<div className='flex items-center gap-14 text-xl font-medium text-[#FFFFFF]'>
-						<Link to="/">
-							<p className={`${
-								location.pathname === '/' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
-							}`}>
-								Забронировать билет
-							</p>
+						<Link to="/" className={`${
+							location.pathname === '/' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
+						}`}>
+							Забронировать билет
 						</Link>
-						<Link to="/wagons">
-							<p className={`${
-								location.pathname === '/wagons' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
-							}`}>
-								Выбор вагона
-							</p>
+						<Link to="/wagons" className={`${
+							location.pathname === '/wagons' ? 'text-[#FFFFFF] underline decoration-[#D9773A] underline-offset-4' : ''
+						}`}>
+							Выбор вагона
 						</Link>
-						<Link to='/auth'>
-							<button className='flex h-[45px] items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
-							Войти <img src={SignIn} />
-							</button>
-						</Link>
+						{!accessToken ? (
+							<Link to='/auth'>
+								<button className='flex h-[45px] items-center gap-9 rounded-[10px] border border-primary-orange px-[15px] py-[12px] text-[15px] font-bold text-primary-orange'>
+									Войти <img src={SignIn} />
+								</button>
+							</Link>
+						) : (
+							<div className='w-10' /> 
+						)}
 					</div>
 				</div>
 			</header>

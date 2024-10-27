@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { PREFIX } from '../../helpers/API';
 import { AuthForm } from '../../components';
+import { setTokens } from '../../store/authSlice';
 
 interface AuthFormData {
 	fullName?: string;
@@ -10,6 +13,8 @@ interface AuthFormData {
 }
 
 export function AuthPage() {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [showCodeModal, setShowCodeModal] = useState(false);
 	const [verificationCode, setVerificationCode] = useState('');
 	const [userId, setUserId] = useState<string | null>(null);
@@ -51,7 +56,12 @@ export function AuthPage() {
 				`${PREFIX}/api/auth/confirmation-code/user?user=${userId}&code=${verificationCode}`
 			);
 			console.log('Verification successful:', response.data);
+			dispatch(setTokens({
+				accessToken: response.data.accessToken,
+				refreshToken: response.data.refreshToken,
+			}));
 			setShowCodeModal(false);
+			navigate('/');
 		} catch (error) {
 			console.error('Verification error:', error);
 			console.log(`${PREFIX}/api/auth/confirmation-code/user?user=${userId}&code=${verificationCode}`);
@@ -69,8 +79,6 @@ export function AuthPage() {
 				`${PREFIX}/api/auth/new-confirmation-code/send?user=${userId}`
 			);
 			console.log('New confirmation code sent:', response.data);
-
-
 		} catch (error) {
 			console.error('Error sending new confirmation code:', error);
 		}
