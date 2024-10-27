@@ -35,7 +35,7 @@ export function Calendar({ onDateSelect }: CalendarProps) {
 	};
 
 	return (
-		<div className="flex gap-5 rounded-md p-2 shadow-lg">
+		<div className="flex gap-5 rounded-xl bg-[#151515] p-2 shadow-lg">
 			<div className="flex">
 				<button
 					onClick={prevMonth}

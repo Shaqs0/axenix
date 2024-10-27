@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthPage, BookingPage, MainPage, WagonsPage } from './pages';
+import { AuthPage, BookingCoupePage, BookingPlatzkartPage, MainPage, WagonsPage } from './pages';
 import { Layout } from './layout/Layout';
 
 const router = createBrowserRouter([
@@ -19,8 +19,12 @@ const router = createBrowserRouter([
 				element: <WagonsPage/>
 			},
 			{
-				path: '/booking',
-				element: <BookingPage/>
+				path: '/coupe',
+				element: <BookingCoupePage/>
+			},
+			{
+				path: '/platzkart',
+				element: <BookingPlatzkartPage/>
 			}
 		]
 	},
